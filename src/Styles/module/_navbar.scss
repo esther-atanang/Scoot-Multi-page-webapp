@@ -1,0 +1,90 @@
+// Navbar
+@use "function";
+
+.nav-bar {
+    font-family: var(--font-one);
+    @include function.flexIt(row);
+    padding: 1.3rem 1.5rem;
+    // position: fixed; 
+    background-color: var(--snow);
+    width: 100%;
+    z-index: 999;
+    .logo {
+        font-size: 2.5rem;
+        color: var(--DarkNavy);
+        font-weight: 700;
+        text-transform: lowercase;
+        text-align: center;
+    }
+
+    .links {
+        // @include function.ColumnFlex(80px); //This is for mobile
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+        align-items: center;
+        .ham-menu {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;  
+            @include function.flexIt(row);
+
+        }
+       
+    }
+    .nav-links{
+        display: none;
+    }
+    .nav-btn{
+        display: none;
+    }
+}
+
+
+@media  screen and (min-width:768px) {
+    .nav-bar{
+
+        .links{
+            display: block;
+            width: auto;
+            .ham-menu{
+                display: none;
+            }
+           
+        }
+        .nav-links{
+            display: block;
+           a{
+             font-size: 1rem;
+           }
+           ul{
+             column-gap: 30px;
+           }
+        }
+        .nav-btn{
+            display: block;
+          }
+    }
+  
+    
+}
+
+@media screen and (min-width:1115px){
+    .nav-bar{
+        padding: 1.3rem 8rem;
+    }
+    .nav-bar .nav-links{
+        margin-left: -100px;
+        a{
+            font-size: 1rem;
+        }
+    }
+    .nav-bar .logo{
+        font-size: 3rem;
+    }
+
+    .nav-bar .nav-links ul{
+        margin-left: -250px;
+    }
+}
+

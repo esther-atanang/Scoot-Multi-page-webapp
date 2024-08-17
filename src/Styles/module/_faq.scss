@@ -1,0 +1,130 @@
+@use "function";
+
+// Variables for reuse
+$faqs-font-family-one: var(--font-one);
+$faqs-font-family-two: var(--font-two);
+$faqs-color-dark-navy: var(--DarkNavy);
+$faqs-color-dim-grey: var(--dimGrey);
+$faqs-bg-color: #F2F5F9;
+$faqs-hover-bg-color: #FFF4DF;
+$faqs-padding: 1.5rem;
+$faqs-row-gap: 50px;
+$faqs-font-weight-light: 300;
+$faqs-font-size-title: 2rem;
+$faqs-font-size-heading: 1.7rem;
+$faqs-font-size-heading-lg: 2rem;
+$faqs-font-size-h3: 0.98rem;
+$faqs-font-size-h3-lg: 1.3rem;
+$faqs-font-size-p: 0.85rem;
+$faqs-font-size-p-lg: 1rem;
+$faqs-line-height: 1.5;
+
+.faqs {
+    @include function.flexIt(column);
+    row-gap: $faqs-row-gap;
+    padding: $faqs-padding;
+
+    .title,
+    .heading {
+        text-align: center;
+        color: $faqs-color-dark-navy;
+        font-family: $faqs-font-family-one;
+        font-weight: 600;
+    }
+
+    .title {
+        font-size: $faqs-font-size-title;
+    }
+
+    .heading {
+        margin-bottom: 30px;
+        font-size: $faqs-font-size-heading;
+    }
+
+    .works,
+    .safe-driving {
+        width: 100%;
+    }
+
+    .faq {
+        width: 100%;
+        background-color: $faqs-bg-color;
+        padding: $faqs-padding;
+        @include function.flexIt(column);
+        font-family: $faqs-font-family-two;
+        font-weight: $faqs-font-weight-light;
+        font-size: $faqs-font-size-p;
+        line-height: $faqs-line-height;
+
+        div:nth-child(1) {
+            width: 100%;
+            @include function.ColumnFlex(10px);
+            justify-content: space-between;
+            align-items: center;
+
+            h3 {
+                font-family: $faqs-font-family-one;
+                font-weight: 600;
+                font-size: $faqs-font-size-h3;
+                color: $faqs-color-dark-navy;
+            }
+
+            button {
+                background-color: transparent;
+                border: none;
+            }
+        }
+
+        p {
+            color: $faqs-color-dim-grey;
+        }
+    }
+
+    .qa {
+        @include function.flexIt(column);
+        row-gap: 30px;
+        width: 100%;
+
+        .faq {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .faqs .faq div:nth-child(1) h3 {
+        font-size: $faqs-font-size-h3-lg;
+    }
+
+    .faqs .faq p {
+        font-size: $faqs-font-size-p-lg;
+        font-weight: 400;
+    }
+
+    .faqs .heading {
+        font-size: $faqs-font-size-heading;
+    }
+
+    .faqs .faq:hover {
+        background-color: $faqs-hover-bg-color;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .works,
+    .safe-driving {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        padding: 1rem 5.5rem;
+    }
+
+    .faqs .title {
+        font-size: 3rem;
+    }
+
+    .faqs .heading {
+        font-size: $faqs-font-size-heading-lg;
+    }
+}

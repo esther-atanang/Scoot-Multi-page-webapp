@@ -1,0 +1,47 @@
+@use "function";
+
+// Variables for reuse
+$banner-padding: 4rem 2rem;
+$banner-font-size-mobile: 2rem;
+$banner-font-size-desktop: 3rem;
+$h2-margin-desktop: 7rem;
+
+.banner {
+    width: 100%;
+    padding: $banner-padding;
+    text-align: center;
+    justify-content: center;
+    background-image: url("../assets/road.jpg");
+    color: var(--snow);
+    font-family: var(--font-one);
+    text-transform: capitalize;
+    font-size: $banner-font-size-mobile;
+    font-weight: 600;
+
+    .icon {
+        display: none;
+    }
+
+    @media screen and (min-width: 768px) {
+        position: relative;
+        text-align: left;
+
+        h2 {
+            margin-left: 10px;
+            font-size: $banner-font-size-desktop;
+        }
+
+        .icon {
+            display: block;
+            position: absolute;
+            right: 0;
+            bottom: 30%;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        h2 {
+            margin-left: $h2-margin-desktop;
+        }
+    }
+}

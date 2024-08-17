@@ -1,0 +1,43 @@
+@use "./base/base";
+@use "./base/reset";
+@use "./module/button";
+@use "./module/banner";
+@use "./module/function";
+@use "./module/navbar";
+@use "./module/header";
+@use "./module/features";
+@use "./module/sidebar";
+@use "./layout/location";
+@use "./module/expansion";
+@use "./layout/career";
+@use "./module/faq";
+@use "./module/value";
+@use "./module/footer";
+
+
+
+//PAGE
+a:hover{
+    color: var(--yellow);
+    transition-duration: 0.4s;
+}
+.page {
+    &::after {
+        content: "";
+        z-index: 77777;
+        position: absolute;
+        top: 80px; //get the height of the navbar...
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.643);
+    }
+}
+.about{
+    .btn{
+        display: none;
+    }
+}
+@media  screen and (min-width:610px) {
+   
+}

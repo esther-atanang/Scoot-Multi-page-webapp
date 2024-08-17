@@ -1,0 +1,186 @@
+@use "function";
+
+// Variables for reuse
+$padding-mobile: 0rem 2rem;
+$row-gap-mobile: 150px;
+$margin-top-mobile: 50px;
+$icon-right-mobile: -550px;
+$exp-title-font-size-mobile: 1.8rem;
+$exp-desc-font-size-mobile: 1rem;
+$exp-title-font-size-desktop: 2.5rem;
+$exp-desc-font-size-desktop: 1.2rem;
+$exp-img-width-mobile: 100%;
+$exp-img-width-desktop: 350px;
+$exp-img-width-large: 500px;
+$after-size-desktop: 350px;
+$after-size-large: 500px;
+$after-right-mobile: -300px;
+$after-left-mobile: -300px;
+$after-right-large: -430px;
+$after-left-large: -420px;
+
+.expansion {
+    @include function.flexIt(column);
+    padding: $padding-mobile;
+    row-gap: $row-gap-mobile;
+    margin-top: $margin-top-mobile;
+
+    .expand {
+        @include function.flexIt(column);
+        row-gap: 20px;
+        text-align: center;
+        position: relative;
+
+        .exp-icon {
+            position: absolute;
+            top: 0;
+            right: $icon-right-mobile;
+            z-index: 9999;
+        }
+
+        .exp-img img {
+            border-radius: 100%;
+            position: relative;
+            z-index: 999;
+            width: $exp-img-width-mobile;
+        }
+
+        .exp {
+            @include function.flexIt(column);
+
+            .exp-title {
+                font-family: var(--font-one);
+
+                h2 {
+                    color: var(--dimGrey);
+                    font-weight: 600;
+                    font-size: $exp-title-font-size-mobile;
+                }
+            }
+
+            .exp-desc {
+                font-family: var(--font-two);
+
+                p {
+                    color: var(--grey);
+                    font-weight: 400;
+                    font-size: $exp-desc-font-size-mobile;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+
+    .expand:nth-child(1) .exp-icon {
+        right: -430px;
+        top: 170px;
+    }
+
+    .expand:nth-child(2) .exp-icon {
+        left: -50px;
+        top: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+        .expand {
+            &::after {
+                content: " ";
+                height: $after-size-desktop;
+                width: $after-size-desktop;
+                background-color: #E5ECF4;
+                border-radius: 100%;
+                position: absolute;
+                right: $after-right-mobile;
+            }
+
+            &:nth-child(2)::after {
+                left: $after-left-mobile;
+            }
+
+            &:nth-child(1) .exp-icon {
+                right: -180px;
+            }
+
+            .exp-img img {
+                width: $exp-img-width-desktop;
+            }
+
+            .exp-title h2 {
+                font-size: $exp-title-font-size-desktop;
+                padding: 0 4rem;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1000px) {
+        .expand {
+            flex-direction: row-reverse;
+            text-align: left;
+            column-gap: 150px;
+            padding: 3rem 4rem;
+
+            .exp {
+                align-items: flex-start;
+            }
+
+            .exp-title h2 {
+                padding: 0;
+                text-align: left;
+            }
+
+            &:nth-child(2) {
+                flex-direction: row;
+            }
+
+            &:nth-child(1) .exp-icon {
+                top: 300px;
+            }
+
+            .exp-icon {
+                top: 50px;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1240px) {
+        row-gap: 50px;
+
+        .expand {
+            padding: 3rem 7rem;
+            column-gap: 100px;
+
+            .exp-img img {
+                width: $exp-img-width-large;
+                object-fit: cover;
+            }
+
+            &:nth-child(2) .exp-icon {
+                top: 90px;
+            }
+
+            .exp-icon {
+                top: 150px;
+                right: -350px;
+            }
+
+            .exp-title h2 {
+                font-size: 2.7rem;
+                width: 450px;
+            }
+
+            .exp-desc p {
+                font-size: $exp-desc-font-size-desktop;
+            }
+
+            &::after {
+                width: $after-size-large;
+                height: $after-size-large;
+                right: $after-right-large;
+            }
+
+            &:nth-child(2)::after {
+                left: $after-left-large;
+            }
+        }
+    }
+}

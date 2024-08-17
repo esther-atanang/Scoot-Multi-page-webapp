@@ -1,0 +1,174 @@
+@use "function";
+
+// Variables for reuse
+$features-padding: 5rem 3rem;
+$features-row-gap: 50px;
+$feature-icon-size: 50px;
+$feature-icon-size-lg: 100px;
+$feature-title-font-family: var(--font-one);
+$feature-desc-font-family: var(--font-two);
+$feature-title-font-size: 1.5rem;
+$feature-title-font-size-lg: 1.7rem;
+$feature-desc-font-size: 0.95rem;
+$feature-desc-font-size-lg: 1.15rem;
+$feature-desc-line-height: 1.5;
+$features-bg-color: #E5ECF4;
+
+.features {
+    padding: $features-padding;
+    @include function.flexIt(column);
+    row-gap: $features-row-gap;
+
+    .feature {
+        @include function.flexIt(column);
+        text-align: center;
+
+        .inner {
+            @include function.flexIt(column);
+            row-gap: 20px;
+        }
+
+        .feature-icon {
+            @include function.flexIt(row);
+            justify-content: center;
+            background-color: var(--yellow);
+            height: $feature-icon-size;
+            width: $feature-icon-size;
+            border-radius: 100%;
+        }
+
+        .feature-title {
+            font-family: $feature-title-font-family;
+
+            h2 {
+                font-size: $feature-title-font-size;
+                color: var(--dimGrey);
+                font-weight: 600;
+            }
+        }
+
+        .feature-desc {
+            font-family: $feature-desc-font-family;
+
+            p {
+                font-size: $feature-desc-font-size;
+                color: var(--grey);
+                font-weight: 400;
+                line-height: $feature-desc-line-height;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .features {
+        position: relative;
+        padding: 5rem;
+        ._inner {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            row-gap: 30px;
+            column-gap: 40px;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 45px;
+                top: -80px;
+                bottom: 0;
+                width: 10px;
+                height: 100%;
+                background-color: $features-bg-color;
+            }
+        }
+
+        .feature {
+            display: grid;
+            grid-template-columns: auto auto;
+            column-gap: 50px;
+
+            .inner {
+                align-items: flex-start;
+            }
+
+            .feature-title h2 {
+                font-size: $feature-title-font-size;
+            }
+
+            .feature-icon {
+                position: relative;
+                z-index: 9999;
+                height: $feature-icon-size-lg;
+                width: $feature-icon-size-lg;
+
+                img {
+                    width: 45px;
+                    height: inherit;
+                }
+            }
+
+            .feature-desc p {
+                font-size: 1rem;
+                text-align: left;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .features {
+        ._inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            align-items: flex-start;
+            &::after {
+                height: 10px;
+                width: 95%;
+                left: -190px;
+                top: 50px;
+            }
+        }
+
+        flex-direction: row;
+        gap: 2rem;
+
+        .feature {
+            grid-template-columns: 1fr;
+            grid-template-rows: $feature-icon-size-lg 1fr;
+        }
+    }
+
+    .feature .feature-title h2 {
+        text-wrap: nowrap;
+    }
+
+    .feature .inner {
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 1240px) {
+    .features {
+        padding: 10rem 8rem;
+        column-gap: 50px;
+
+        ._inner::after {
+            left: -250px;
+        }
+
+        .feature {
+            grid-template-rows: $feature-icon-size-lg 1fr;
+            row-gap: 50px;
+
+            .feature-title h2 {
+                font-size: $feature-title-font-size-lg;
+                text-wrap: nowrap;
+            }
+
+            .feature-desc p {
+                font-size: $feature-desc-font-size-lg;
+            }
+        }
+    }
+}

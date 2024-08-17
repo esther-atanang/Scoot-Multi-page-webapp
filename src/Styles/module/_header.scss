@@ -1,0 +1,209 @@
+@use "function";
+@use "../base/base";
+
+// Header Wrapper
+.header-wrapper {
+    position: relative;
+    background-image: url("../assets/scooter_man.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #2F3B59;
+        opacity: 0.3;
+    }
+}
+
+// Header
+header {
+    padding: 7rem 2.5rem 10rem;
+    @include function.flexIt(column);
+
+    .hero-title,
+    .hero-desc,
+    .hero-btn,
+    .hero-icons {
+        position: relative;
+        z-index: 999;
+        color: white;
+    }
+
+    .hero-icons {
+        position: absolute;
+        bottom: 70px;
+        width: 100%;
+        padding-bottom: 5rem;
+
+        .arr {
+            position: absolute;
+            bottom: -30px;
+            left: -200px; // For mobile
+            width: 300px;
+        }
+
+        .circ {
+            display: none;
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    .hero-title h2 {
+        font-size: 2.8rem;
+        font-weight: 600;
+        font-family: var(--font-one);
+        text-align: center;
+    }
+
+    .hero-desc p {
+        font-family: var(--font-two);
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: center;
+    }
+}
+
+// Media Queries
+@media screen and (min-width: 568px) {
+    header .hero-title h2 {
+        font-size: 3.2rem;
+    }
+}
+
+@media screen and (min-width: 618px) {
+    header .hero-title h2 {
+        font-size: 3.7rem;
+    }
+
+    header .hero-desc p {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        padding: 9rem 8rem;
+
+        .hero-icons .arr {
+            left: 0;
+        }
+
+        .hero-icons .circ {
+            display: block;
+            bottom: -30px;
+        }
+
+        .hero-title h2 {
+            font-size: 3.5rem;
+        }
+
+        .hero-desc p {
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            font-size: 1rem;
+        }
+    }
+}
+
+@media screen and (min-width: 917px) {
+    header .hero-title h2 {
+        font-size: 4.5rem;
+    }
+}
+
+@media screen and (min-width: 1120px) {
+    header {
+        padding-left: 5rem;
+    }
+
+    .header-wrapper {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr;
+
+        .hero {
+            align-items: flex-start;
+
+            .hero-title h2,
+            .hero-desc p {
+                text-align: left;
+                font-size: 3.35rem;
+            }
+
+            .hero-desc p {
+                font-size: 1.15rem;
+                margin-left: 80px;
+                width: 430px;
+                height: 150px;
+            }
+
+            .hero-icons .arr {
+                left: 520px;
+                bottom: 80px;
+                width: 410px;
+            }
+
+            .hero-icons .circ {
+                bottom: -30px;
+                right: 80px;
+            }
+
+            .hero-btn {
+                margin-left: 150px;
+            }
+
+            &::after {
+                content: "";
+                width: 150px;
+                height: 15px;
+                background-color: var(--yellow);
+                position: absolute;
+                z-index: 999;
+                left: -30px;
+                bottom: 270px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1240px) {
+    header {
+        padding-top: 10rem;
+        padding-left: 8rem;
+        justify-content: flex-start;
+        min-height: 100vh;
+    }
+
+    .header-wrapper .hero .hero-title h2 {
+        font-size: 4rem;
+    }
+
+    .header-wrapper .hero .hero-desc p {
+        font-size: 1.2rem;
+        width: 530px;
+    }
+
+    .header-wrapper .hero .hero-icons .circ {
+        bottom: 220px;
+        right: 120px;
+    }
+
+    .header-wrapper .hero::after {
+        width: 200px;
+        bottom: 400px;
+    }
+
+    .header-wrapper .hero .hero-icons .arr {
+        bottom: 210px;
+        left: 650px;
+    }
+}

@@ -1,0 +1,14 @@
+//Functions
+@mixin flexIt($direction: row) {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: $direction;
+    row-gap: 20px;
+    align-items: center;
+}
+
+@mixin ColumnFlex($gap) {
+    display: flex;
+    align-items: center;
+    column-gap: $gap;
+}

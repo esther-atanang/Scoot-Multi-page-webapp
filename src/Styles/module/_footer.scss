@@ -1,0 +1,217 @@
+@use "function";
+
+// Variables for reuse
+$padding-mobile: 1.5rem;
+$padding-desktop: 7rem;
+$row-gap: 30px;
+$column-gap: 20px;
+$border-radius: 5px;
+$btn-padding: 0.8rem;
+$btn-gap: 10px;
+$font-one: var(--font-one);
+$font-two: var(--font-two);
+$dark-navy: var(--DarkNavy);
+$snow: var(--snow);
+$grey-bg: #333A44;
+$sign-up-bg: var(--DarkNavy);
+
+// Sign-up Section
+.sign-up {
+    margin-top: 150px;
+    padding: 6rem $padding-mobile;
+    background-color: $sign-up-bg;
+    @include function.flexIt(column);
+    row-gap: $row-gap;
+    align-items: center;
+
+    h3 {
+        font-family: $font-one;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: $snow;
+        text-align: center;
+    }
+
+    .sign-up-btn {
+        @include function.flexIt(row);
+        column-gap: $column-gap;
+
+        button {
+            border: none;
+            border-radius: $border-radius;
+            padding: $btn-padding;
+            cursor: pointer;
+            @include function.flexIt(row);
+            text-align: left;
+            font-family: $font-one;
+            column-gap: $btn-gap;
+            color: $dark-navy;
+
+            .small {
+                font-size: 0.7rem;
+                font-family: $font-two;
+            }
+
+            p {
+                @include function.flexIt(column);
+                text-wrap: nowrap;
+                row-gap: 1px;
+                align-items: flex-start;
+
+                .large {
+                    font-weight: 600;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    position: relative;
+
+    .icons {
+        img:nth-child(1) {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        img:nth-child(2) {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    }
+}
+
+// Footer Section
+.footer-section {
+    background-color: $grey-bg;
+    padding: 5rem $padding-mobile;
+    @include function.flexIt(column);
+    font-family: $font-one;
+    row-gap: 50px;
+    text-align: center;
+
+    .logo {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: white;
+    }
+
+    .navLinks {
+        @include function.flexIt(column);
+        row-gap: $row-gap;
+        margin-bottom: 40px;
+    }
+
+    img {
+        height: 20px;
+        width: 20px;
+    }
+}
+
+// Media Queries
+@media screen and (min-width: 768px) {
+    .sign-up {
+        overflow: hidden;
+        padding: 6rem;
+
+        h3 {
+            font-size: 3rem;
+        }
+
+        &::after {
+            content: "";
+            width: 320px;
+            height: 320px;
+            background-color: transparent;
+            border: 13px solid #596675;
+            border-radius: 100%;
+            position: absolute;
+            bottom: -150px;
+            margin-right: 25px;
+        }
+
+        .sign-up-btn {
+            position: relative;
+            z-index: 999;
+        }
+    }
+
+    .footer-section {
+        padding: 1.5rem;
+        @include function.flexIt(row);
+
+        .navLinks {
+            @include function.flexIt(row);
+            margin: 0;
+            column-gap: $column-gap;
+            margin-left: -80px;
+
+            a {
+                font-size: 1rem;
+            }
+        }
+
+        ul {
+            column-gap: 20px;
+        }
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .sign-up {
+        flex-direction: row;
+        column-gap: 50px;
+        padding: $padding-desktop;
+
+        h3 {
+            text-align: left;
+            position: relative;
+            z-index: 9999;
+        }
+
+        &::after {
+            left: 550px;
+        }
+
+        .icons img:nth-child(1) {
+            display: none;
+        }
+
+        &::before {
+            content: "";
+            width: 320px;
+            height: 320px;
+            background-color: transparent;
+            border: 13px solid #596675;
+            border-radius: 100%;
+            position: absolute;
+            bottom: -150px;
+            left: 180px;
+            margin-right: 25px;
+        }
+    }
+}
+
+@media screen and (min-width: 1240px) {
+    .sign-up {
+        column-gap: 200px;
+
+        &::after {
+            left: 900px;
+        }
+
+        &::before {
+            left: 550px;
+        }
+    }
+
+    .footer-section {
+        padding: 2rem 7rem;
+
+        .navLinks {
+            margin-right: 500px;
+        }
+    }
+}

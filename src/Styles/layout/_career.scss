@@ -1,0 +1,109 @@
+@use "../module/function";
+
+// Variables for reuse
+$whyjoin-margin-top: 150px;
+$whyjoin-h3-font-size: 1.7rem;
+$whyjoin-h3-font-weight: 600;
+$values-inner-row-gap: 50px;
+$job-padding: 2rem;
+$job-background-color: #F2F5F9;
+$job-h3-font-weight: 600;
+$job-h3-font-size: 1.1rem;
+$job-p-font-size: 0.8rem;
+$btn-margin-top: 20px;
+$grid-template-columns: 1fr 200px;
+
+.whyjoin {
+    text-align: center;
+    margin-top: $whyjoin-margin-top;
+
+    h3 {
+        font-size: $whyjoin-h3-font-size;
+        font-weight: $whyjoin-h3-font-weight;
+        font-family: var(--font-one);
+        color: var(--DarkNavy);
+    }
+
+    .values .inner {
+        @include function.flexIt(column);
+        row-gap: $values-inner-row-gap;
+    }
+}
+
+.jobListings {
+    @include function.flexIt(column);
+    padding: $job-padding;
+
+    .job {
+        background-color: $job-background-color;
+        width: 100%;
+        font-family: var(--font-one);
+        padding: $job-padding 2.5rem;
+        @include function.flexIt(column);
+        row-gap: 8px;
+        color: var(--DarkNavy);
+
+        div {
+            width: 100%;
+        }
+
+        div:nth-child(1) {
+            @include function.flexIt(column);
+        }
+
+        h3 {
+            font-weight: $job-h3-font-weight;
+            font-size: $job-h3-font-size;
+            text-wrap: nowrap;
+        }
+
+        p {
+            font-size: $job-p-font-size;
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: $btn-margin-top;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .whyjoin .values .inner {
+        @include function.flexIt(row);
+        column-gap: 20px;
+        padding: 0rem 3rem;
+    }
+}
+
+@media screen and (min-width: 868px) {
+    .whyjoin .values .inner {
+        column-gap: 20px;
+        padding: 0;
+    }
+
+    .jobListings .job {
+        display: grid;
+        grid-template-columns: $grid-template-columns;
+        text-align: left;
+
+        h3 {
+            font-size: 1.3rem;
+        }
+
+        p {
+            font-size: 1.0rem;
+            font-weight: 500;
+        }
+
+        div:nth-child(1) {
+            align-items: flex-start;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .jobListings {
+        padding: 2rem 6.5rem;
+    }
+}

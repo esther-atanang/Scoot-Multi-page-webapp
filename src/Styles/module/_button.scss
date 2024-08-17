@@ -1,0 +1,29 @@
+@use "../base/base";
+
+// Variables for reuse
+$btn-padding: 0.8rem 2.5rem;
+$btn-font-size-mobile: 0.9rem;
+$btn-font-size-desktop: 1rem;
+$transition-time: 0.5s;
+
+.btn {
+    font-family: var(--font-one);
+    color: var(--snow);
+    background: var(--yellow);
+    border: 2px solid var(--yellow);
+    padding: $btn-padding;
+    font-size: $btn-font-size-mobile;
+    text-transform: capitalize;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+        transition: all $transition-time;
+        background-color: transparent;
+        color: var(--yellow);
+    }
+
+    @media screen and (min-width: 1000px) {
+        font-size: $btn-font-size-desktop;
+    }
+}
