@@ -1,14 +1,15 @@
-# React Multipage website
-### Built with React, Vite and `React Router` for the page navigation
+# React Multipage Website
+### Built with React, Vite, and `React Router` for page navigation
 
+The aim of this project is to gain a basic knowledge of how to use React Router.
 
-The aim of this project is to gain a basic Knowledge on how to use React router
-
-### Basic functionalities
+### Basic Functionalities
 - View the pages
-- Navigate 😭 ( Cool thing is that it is built using react router which I still need to learn deeply)
+- Navigate between pages 😭 (The cool thing is that it's built using React Router, which I still need to learn deeply.)
 
-### Issues with the code
-- The header might not really look goood on really big screens, so I  will fix that for you viewing pleasure, Aidos.
-- I need to work on accessibility...I really need to 😔
+### Issues with the Code
+- The header might not look great on very large screens, so I'll fix that for your viewing pleasure. Aidos!
+- I need to work on accessibility... I really need to 😔
 
+### Live Site
+Check out the live site: [Scoot Webapp](https://scoot-multi-page-webapp-68phx8tin-esther-atanangs-projects.vercel.app/)
